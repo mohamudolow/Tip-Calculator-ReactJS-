@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Container } from 'react-bootstrap';
+import { Container, Form, InputGroup, FormControl, Row, Col } from 'react-bootstrap';
 
 class App extends React.Component {
   constructor(props) {
@@ -13,6 +13,24 @@ class App extends React.Component {
       <div className="header">
       <h1>Tip Calculator</h1>
       </div>
+      
+      <div className="bill">
+      <Form>
+      <Form.Label>Bill</Form.Label>
+      <Row>
+      <Col>
+      <InputGroup className="input1">
+      <InputGroup.Prepend>
+      <InputGroup.Text>$</InputGroup.Text>
+      </InputGroup.Prepend>
+      <FormControl arai-label="Amount (to the nearest two decimal places)" />
+      </InputGroup>
+      </Col>
+      <Col></Col>
+      </Row>
+      </Form>
+      </div>
+      
       
       </Container>
     );
