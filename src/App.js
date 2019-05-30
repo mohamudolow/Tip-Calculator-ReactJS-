@@ -9,7 +9,11 @@ class App extends React.Component {
   render () {
     return (
       <Container>
+      
+      <div className="header">
       <h1>Tip Calculator</h1>
+      </div>
+      
       </Container>
     );
   }
