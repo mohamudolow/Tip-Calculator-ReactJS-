@@ -31,7 +31,10 @@ class App extends React.Component {
       </Form>
       </div>
       
-      
+      <div id="service">
+      <h2>Service Quality</h2>
+      <hr />
+      </div>
       </Container>
     );
   }
