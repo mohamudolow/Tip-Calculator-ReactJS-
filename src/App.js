@@ -26,7 +26,7 @@ class App extends React.Component {
       <FormControl arai-label="Amount (to the nearest two decimal places)" />
       </InputGroup>
       </Col>
-      <Col></Col>
+      <Col><div className="incrementor"><i class="fas fa-user-times"></i>&nbsp;&nbsp;<span>2</span>&nbsp;&nbsp;<i class="fas fa-user-plus"></i></div></Col>
       </Row>
       </Form>
       </div>
