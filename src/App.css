@@ -52,3 +52,11 @@ h3 {
 #tip span {
   font-size: 120%;
 }
+
+#result .row {
+  padding-bottom: 2%;
+}
+#tip-per-person {
+  font-size: 120%;
+  font-weight: bolder;
+}
