@@ -85,7 +85,15 @@ class App extends React.Component {
       </Carousel.Item>
       </Carousel>
       </Col>
-      <Col></Col>
+      <Col id="tip">
+      <Col><p>Tip%</p></Col><br />
+      <Col>
+      <div className="incrementor">
+      <i class="fas fa-plus-square"></i>&nbsp;&nbsp;<span>10</span>&nbsp;&nbsp;
+      <i class="fas fa-minus-square"></i>
+      </div>
+      </Col>
+      </Col>
       </Row>
       </div>
       </Container>

@@ -43,3 +43,12 @@ h3 {
   text-transform: none;
   font-size: 85%;
 }
+#tip .incrementor {
+  padding: 6% 3%;
+}
+#tip i {
+  font-size: 120%
+}
+#tip span {
+  font-size: 120%;
+}
