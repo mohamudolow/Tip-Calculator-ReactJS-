@@ -3,6 +3,22 @@ import './App.css';
 import { Container, Form, InputGroup, FormControl, Row, Col, Carousel } from 'react-bootstrap';
 
 
+class PersonIncrementor extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  
+  render() {
+    return (
+      <div className="incrementor">
+      <i class="fas fa-user-times"></i>&nbsp;&nbsp;
+      <span>2</span>&nbsp;&nbsp;
+      <i class="fas fa-user-plus"></i></div>
+    );
+  }
+}
+
+
 const Bill = () => {
   return (
     <div className="bill">
@@ -17,7 +33,9 @@ const Bill = () => {
       <FormControl arai-label="Amount (to the nearest two decimal places)" />
       </InputGroup>
       </Col>
-      <Col><div className="incrementor"><i class="fas fa-user-times"></i>&nbsp;&nbsp;<span>2</span>&nbsp;&nbsp;<i class="fas fa-user-plus"></i></div></Col>
+      <Col>
+    <PersonIncrementor />
+    </Col>
       </Row>
       </Form>
       </div>
