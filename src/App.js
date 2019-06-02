@@ -2,19 +2,9 @@ import React from 'react';
 import './App.css';
 import { Container, Form, InputGroup, FormControl, Row, Col, Carousel } from 'react-bootstrap';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  render () {
-    return (
-      <Container>
-
-      <div className="header">
-      <h1>Tip Calculator</h1>
-      </div>
-
-      <div className="bill">
+const Bill = () => {
+  return (
+    <div className="bill">
       <Form>
       <Form.Label>Bill</Form.Label>
       <Row>
@@ -29,6 +19,19 @@ class App extends React.Component {
       <Col><div className="incrementor"><i class="fas fa-user-times"></i>&nbsp;&nbsp;<span>2</span>&nbsp;&nbsp;<i class="fas fa-user-plus"></i></div></Col>
       </Row>
       </Form>
+      </div>
+  );
+}
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render () {
+    return (
+      <Container>
+
+      <div className="header">
+      <h1>Tip Calculator</h1>
       </div>
 
       <div id="service">
