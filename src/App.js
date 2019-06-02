@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import { Container, Form, InputGroup, FormControl, Row, Col, Carousel } from 'react-bootstrap';
 
+
 const Bill = () => {
   return (
     <div className="bill">
@@ -22,6 +23,7 @@ const Bill = () => {
       </div>
   );
 }
+
 
 class ServiceQuality extends React.Component {
   constructor(props) {
@@ -79,6 +81,7 @@ class ServiceQuality extends React.Component {
   }
 };
 
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -91,6 +94,8 @@ class App extends React.Component {
       <h1>Tip Calculator</h1>
       </div>
 
+      <Bill />
+      
       <div id="service">
       <h2>Service Quality</h2>
       <hr />
