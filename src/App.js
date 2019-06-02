@@ -22,26 +22,14 @@ const Bill = () => {
       </div>
   );
 }
-class App extends React.Component {
+
+class ServiceQuality extends React.Component {
   constructor(props) {
     super(props);
   }
-  render () {
+  
+  render() {
     return (
-      <Container>
-
-      <div className="header">
-      <h1>Tip Calculator</h1>
-      </div>
-
-      <div id="service">
-      <h2>Service Quality</h2>
-      <hr />
-      </div>
-      <div>
-      <Row>
-      <Col>
-      <Col><p className="experience">How was your experience today?</p></Col>
       <Carousel>
       <Carousel.Item>
       <img
@@ -87,6 +75,33 @@ class App extends React.Component {
       </Carousel.Caption>
       </Carousel.Item>
       </Carousel>
+    );
+  }
+};
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render () {
+    return (
+      <Container>
+
+      <div className="header">
+      <h1>Tip Calculator</h1>
+      </div>
+
+      <div id="service">
+      <h2>Service Quality</h2>
+      <hr />
+      </div>
+      <div>
+      <Row>
+      <Col>
+      <Col><p className="experience">How was your experience today?</p></Col>
+      
+      <ServiceQuality />
+      
       </Col>
       <Col id="tip">
       <Col><p>Tip%</p></Col><br />
