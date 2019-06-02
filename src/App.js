@@ -81,6 +81,20 @@ class ServiceQuality extends React.Component {
   }
 };
 
+class TipIncrementor extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div className="incrementor">
+      <i class="fas fa-plus-square"></i>&nbsp;&nbsp;
+      <span>10</span>&nbsp;&nbsp;
+      <i class="fas fa-minus-square"></i>
+      </div>
+    );
+  }
+};
 
 class App extends React.Component {
   constructor(props) {
@@ -111,10 +125,9 @@ class App extends React.Component {
       <Col id="tip">
       <Col><p>Tip%</p></Col><br />
       <Col>
-      <div className="incrementor">
-      <i class="fas fa-plus-square"></i>&nbsp;&nbsp;<span>10</span>&nbsp;&nbsp;
-      <i class="fas fa-minus-square"></i>
-      </div>
+      
+      <TipIncrementor />
+      
       </Col>
       </Col>
       </Row>
