@@ -1,12 +1,14 @@
-.container {
+#container {
   width: 90%;
   max-width: 400px;
-  height: 90vh;
-  margin: 4vh auto;
+  height: auto;
+  max-height: 95vh;
+  margin: 3vh auto;
+  padding-bottom: 0;
   background-color: rgba(47, 48, 52, 0.54);
-  border: 1px solid #333;
+  border: 5px inset rgba(47, 48, 52, 0.54);
+    /*#333;*/
   color: white;
-  text-transform: uppercase;
 }
 .header {
   background-color: rgba(47, 48, 52, 0.24);
@@ -19,6 +21,9 @@
 h1 {
   text-align: center;
   font-size: 150%;
+}
+#main {
+  background-color: rgba(45, 52, 54, 0.45);
 }
 .bill {
   margin-top: 10%;
@@ -56,7 +61,14 @@ h3 {
 #result .row {
   padding-bottom: 2%;
 }
+.num {
+  text-align: center;
+}
 #tip-per-person {
-  font-size: 120%;
+  margin-bottom: 0;
+  padding-top: 3%;
+  padding-bottom: 6%;
+  background-color: rgba(0, 0, 0, 0.38);
+  font-size: 140%;
   font-weight: bolder;
 }

@@ -118,26 +118,30 @@ class TipIncrementor extends React.Component {
 const Result = () => {
   return (
     <div id="result">
+    <Container>
       <Row>
       <Col>Individual Total Without Tip</Col>
-      <Col>45</Col>
+      <Col className="num">45</Col>
       </Row>
       
       <Row>
       <Col>Individual Total With Tip</Col>
-      <Col>50</Col>
+      <Col className="num">50</Col>
       </Row>
       
       <Row>
       <Col>Total Tip Amount</Col>
-      <Col>20</Col>
-      </Row><br />
+      <Col className="num">20</Col>
+      </Row>
+    </Container><br />
       
       <div id="tip-per-person">
+    <Container>
       <Row>
       <Col>Tip Per Person</Col>
-      <Col>5</Col>
+      <Col className="num">5</Col>
       </Row>
+    </Container>
       </div>
       </div>
   );
@@ -150,13 +154,18 @@ class App extends React.Component {
   }
   render () {
     return (
+      <div id="container">
       <Container>
 
       <div className="header">
       <h1>Tip Calculator</h1>
       </div>
-
+</Container>
+      
+      <div id="main">
+      <Container>
       <Bill />
+      
       
       <div id="service">
       <h2>Service Quality</h2>
@@ -165,7 +174,9 @@ class App extends React.Component {
       <div>
       <Row>
       <Col>
-      <Col><p className="experience">How was your experience today?</p></Col>
+      <Col>
+      <p className="experience">How was your experience today?</p>
+      </Col>
       
       <ServiceQuality />
       
@@ -182,12 +193,13 @@ class App extends React.Component {
       </div>
       
       <hr />
+      </Container>
       
       <Result />
-      
-      </Container>
+      </div>
+      </div>
     );
   }
-}
+};
 
 export default App;
