@@ -12,14 +12,14 @@ class PersonIncrementor extends React.Component {
     return (
       <div className="incrementor">
       <i class="fas fa-user-times"></i>&nbsp;&nbsp;
-      <span>2</span>&nbsp;&nbsp;
+      <span>{this.props.numOfPeople}</span>&nbsp;&nbsp;
       <i class="fas fa-user-plus"></i></div>
     );
   }
 }
 
 
-const Bill = () => {
+const Bill = (props) => {
   return (
     <div className="bill">
       <Form>
@@ -30,11 +30,11 @@ const Bill = () => {
       <InputGroup.Prepend>
       <InputGroup.Text>$</InputGroup.Text>
       </InputGroup.Prepend>
-      <FormControl arai-label="Amount (to the nearest two decimal places)" />
+      <FormControl arai-label="Amount (to the nearest two decimal places)" value={props.bill}/>
       </InputGroup>
       </Col>
       <Col>
-    <PersonIncrementor />
+    <PersonIncrementor numOfPeople={props.numOfPeople}/>
     </Col>
       </Row>
       </Form>
@@ -107,7 +107,7 @@ class TipIncrementor extends React.Component {
     return (
       <div className="incrementor">
       <i class="fas fa-plus-square"></i>&nbsp;&nbsp;
-      <span>10</span>&nbsp;&nbsp;
+      <span>{this.props.tip}</span>&nbsp;&nbsp;
       <i class="fas fa-minus-square"></i>
       </div>
     );
@@ -151,6 +151,11 @@ const Result = () => {
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      bill: 102.48,
+      tip: 10,
+      numOfPeople: 2
+    }
   }
   render () {
     return (
@@ -164,7 +169,7 @@ class App extends React.Component {
       
       <div id="main">
       <Container>
-      <Bill />
+      <Bill bill={this.state.bill} numOfPeople={this.state.numOfPeople} />
       
       
       <div id="service">
@@ -185,7 +190,7 @@ class App extends React.Component {
       <Col><p>Tip%</p></Col><br />
       <Col>
       
-      <TipIncrementor />
+      <TipIncrementor tip={this.state.tip} />
       
       </Col>
       </Col>
