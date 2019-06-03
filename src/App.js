@@ -114,6 +114,36 @@ class TipIncrementor extends React.Component {
   }
 };
 
+
+const Result = () => {
+  return (
+    <div id="result">
+      <Row>
+      <Col>Individual Total Without Tip</Col>
+      <Col>45</Col>
+      </Row>
+      
+      <Row>
+      <Col>Individual Total With Tip</Col>
+      <Col>50</Col>
+      </Row>
+      
+      <Row>
+      <Col>Total Tip Amount</Col>
+      <Col>20</Col>
+      </Row><br />
+      
+      <div id="tip-per-person">
+      <Row>
+      <Col>Tip Per Person</Col>
+      <Col>5</Col>
+      </Row>
+      </div>
+      </div>
+  );
+}
+
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -153,29 +183,8 @@ class App extends React.Component {
       
       <hr />
       
-      <div id="result">
-      <Row>
-      <Col>Individual Total Without Tip</Col>
-      <Col>45</Col>
-      </Row>
+      <Result />
       
-      <Row>
-      <Col>Individual Total With Tip</Col>
-      <Col>50</Col>
-      </Row>
-      
-      <Row>
-      <Col>Total Tip Amount</Col>
-      <Col>20</Col>
-      </Row><br />
-      
-      <div id="tip-per-person">
-      <Row>
-      <Col>Tip Per Person</Col>
-      <Col>5</Col>
-      </Row>
-      </div>
-      </div>
       </Container>
     );
   }
