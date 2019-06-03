@@ -115,23 +115,27 @@ class TipIncrementor extends React.Component {
 };
 
 
-const Result = () => {
+const Result = (props) => {
+  const ITWithoutTip = Math.round((props.bill/props.numOfPeople)*100)/100;
+  const ITWithTip = Math.round((ITWithoutTip + (props.tip *  props.bill)/100) * 100)/100;
+  const tipTotal = Math.round((ITWithTip -ITWithoutTip) * props.numOfPeople *100)/100;
+  const tipPerPerson = Math.round((ITWithTip - ITWithoutTip) * 100)/100;
   return (
     <div id="result">
     <Container>
       <Row>
       <Col>Individual Total Without Tip</Col>
-      <Col className="num">45</Col>
+      <Col className="num">{ITWithoutTip}</Col>
       </Row>
       
       <Row>
       <Col>Individual Total With Tip</Col>
-      <Col className="num">50</Col>
+      <Col className="num">{ITWithTip}</Col>
       </Row>
       
       <Row>
       <Col>Total Tip Amount</Col>
-      <Col className="num">20</Col>
+      <Col className="num">{tipTotal}</Col>
       </Row>
     </Container><br />
       
@@ -139,7 +143,7 @@ const Result = () => {
     <Container>
       <Row>
       <Col>Tip Per Person</Col>
-      <Col className="num">5</Col>
+      <Col className="num">{tipPerPerson}</Col>
       </Row>
     </Container>
       </div>
@@ -200,7 +204,7 @@ class App extends React.Component {
       <hr />
       </Container>
       
-      <Result />
+      <Result bill={this.state.bill} numOfPeople={this.state.numOfPeople} tip={this.state.tip} />
       </div>
       </div>
     );
