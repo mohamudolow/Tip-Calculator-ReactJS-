@@ -10,9 +10,9 @@ class PersonIncrementor extends React.Component {
   render() {
     return (
       <div className="incrementor">
-      <i class="fas fa-user-times" onClick={()=> this.props.handleIncrement('numOfPeople', -1)}></i>&nbsp;&nbsp;
+      <i className="fas fa-user-times" onClick={()=> this.props.handleIncrement('numOfPeople', -1)}></i>&nbsp;&nbsp;
       <span>{this.props.numOfPeople}</span>&nbsp;&nbsp;
-      <i class="fas fa-user-plus" onClick={()=> this.props.handleIncrement('numOfPeople', 1)}></i></div>
+      <i className="fas fa-user-plus" onClick={()=> this.props.handleIncrement('numOfPeople', 1)}></i></div>
     );
   }
 }
@@ -22,7 +22,12 @@ const Bill = (props) => {
   return (
     <div className="bill">
       <Form>
-      <Form.Label>Bill</Form.Label>
+    <Row>
+      <Col><Form.Label>Bill</Form.Label></Col>
+    <Col>
+    <p>Number of people</p>
+    </Col>
+    </Row>
       <Row>
       <Col>
       <InputGroup className="input1">
@@ -102,9 +107,9 @@ class TipIncrementor extends React.Component {
   render() {
     return (
       <div className="incrementor">
-      <i class="fas fa-minus-square" onClick={() => this.props.handleIncrement('tip', -1)}></i>&nbsp;&nbsp;
+      <i className="fas fa-minus-square" onClick={() => this.props.handleIncrement('tip', -1)}></i>&nbsp;&nbsp;
       <span>{this.props.tip}</span>&nbsp;&nbsp;
-      <i class="fas fa-plus-square" onClick={()=> this.props.handleIncrement('tip', 1)}></i>
+      <i className="fas fa-plus-square" onClick={()=> this.props.handleIncrement('tip', 1)}></i>
       </div>
     );
   }
@@ -116,21 +121,22 @@ const Result = (props) => {
   const ITWithTip = Math.round((ITWithoutTip + (props.tip *  props.bill)/100) * 100)/100;
   const tipTotal = Math.round((ITWithTip -ITWithoutTip) * props.numOfPeople *100)/100;
   const tipPerPerson = Math.round((ITWithTip - ITWithoutTip) * 100)/100;
+  
   return (
     <div id="result">
     <Container>
       <Row>
-      <Col>Individual Total Without Tip</Col>
+      <Col>Individual total without tip:</Col>
       <Col className="num">{ITWithoutTip}</Col>
       </Row>
       
       <Row>
-      <Col>Individual Total With Tip</Col>
+      <Col>Individual total with tip:</Col>
       <Col className="num">{ITWithTip}</Col>
       </Row>
       
       <Row>
-      <Col>Total Tip Amount</Col>
+      <Col>Total tip amount:</Col>
       <Col className="num">{tipTotal}</Col>
       </Row>
     </Container><br />
@@ -138,7 +144,7 @@ const Result = (props) => {
       <div id="tip-per-person">
     <Container>
       <Row>
-      <Col>Tip Per Person</Col>
+      <Col className="tip-per-person-text">Tip per person:</Col>
       <Col className="num">{tipPerPerson}</Col>
       </Row>
     </Container>
@@ -182,12 +188,12 @@ class App extends React.Component {
   render () {
     return (
       <div id="container">
+      
+      <div id="header">
       <Container>
-
-      <div className="header">
       <h1>Tip Calculator</h1>
-      </div>
 </Container>
+      </div>
       
       <div id="main">
       <Container>
@@ -195,7 +201,6 @@ class App extends React.Component {
       
       
       <div id="service">
-      <h2>Service Quality</h2>
       <hr />
       </div>
       <div>
@@ -209,7 +214,7 @@ class App extends React.Component {
       
       </Col>
       <Col id="tip">
-      <Col><p>Tip%</p></Col><br />
+      <Col><p>Tip %</p></Col><br />
       <Col>
       
       <TipIncrementor handleIncrement={this.handleIncrement} tip={this.state.tip} />
