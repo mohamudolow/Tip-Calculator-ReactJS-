@@ -7,13 +7,12 @@ class PersonIncrementor extends React.Component {
   constructor(props) {
     super(props);
   }
-  
   render() {
     return (
       <div className="incrementor">
-      <i class="fas fa-user-times"></i>&nbsp;&nbsp;
+      <i class="fas fa-user-times" onClick={()=> this.props.handleIncrement('numOfPeople', -1)}></i>&nbsp;&nbsp;
       <span>{this.props.numOfPeople}</span>&nbsp;&nbsp;
-      <i class="fas fa-user-plus"></i></div>
+      <i class="fas fa-user-plus" onClick={()=> this.props.handleIncrement('numOfPeople', 1)}></i></div>
     );
   }
 }
@@ -34,7 +33,7 @@ const Bill = (props) => {
       </InputGroup>
       </Col>
       <Col>
-    <PersonIncrementor numOfPeople={props.numOfPeople}/>
+    <PersonIncrementor numOfPeople={props.numOfPeople} handleIncrement={props.handleIncrement}/>
     </Col>
       </Row>
       </Form>
@@ -99,6 +98,7 @@ class ServiceQuality extends React.Component {
   }
 };
 
+
 class TipIncrementor extends React.Component {
   constructor(props) {
     super(props);
@@ -106,9 +106,9 @@ class TipIncrementor extends React.Component {
   render() {
     return (
       <div className="incrementor">
-      <i class="fas fa-plus-square"></i>&nbsp;&nbsp;
+      <i class="fas fa-minus-square" onClick={() => this.props.handleIncrement('tip', -1)}></i>&nbsp;&nbsp;
       <span>{this.props.tip}</span>&nbsp;&nbsp;
-      <i class="fas fa-minus-square"></i>
+      <i class="fas fa-plus-square" onClick={()=> this.props.handleIncrement('tip', 1)}></i>
       </div>
     );
   }
@@ -161,12 +161,19 @@ class App extends React.Component {
       numOfPeople: 2
     }
     this.handleChange = this.handleChange.bind(this);
+    this.handleIncrement = this.handleIncrement.bind(this);
   }
   
   handleChange(event) {
     this.setState({
       bill: event.target.value
     })
+  }
+  
+  handleIncrement(count, value) {
+    this.setState(prevState => ({
+                  [count]: prevState[count] + value
+                  }));
   }
   
   render () {
@@ -181,7 +188,7 @@ class App extends React.Component {
       
       <div id="main">
       <Container>
-      <Bill bill={this.state.bill} numOfPeople={this.state.numOfPeople} handleChange={this.handleChange}/>
+      <Bill bill={this.state.bill} numOfPeople={this.state.numOfPeople} handleChange={this.handleChange} handleIncrement={this.handleIncrement}/>
       
       
       <div id="service">
@@ -202,7 +209,7 @@ class App extends React.Component {
       <Col><p>Tip%</p></Col><br />
       <Col>
       
-      <TipIncrementor tip={this.state.tip} />
+      <TipIncrementor handleIncrement={this.handleIncrement} tip={this.state.tip} />
       
       </Col>
       </Col>
