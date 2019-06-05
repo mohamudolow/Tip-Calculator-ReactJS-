@@ -54,7 +54,7 @@ class ServiceQuality extends React.Component {
       <img
       className="d-block w-100" src="https://cdn.pixabay.com/photo/2012/03/01/00/57/background-19861_1280.jpg"
       alt="First slide"
-      /> 
+      onClick={()=> this.props.service('tip', 35)}/> 
       <Carousel.Caption>
       <h3>Excellent</h3>
       </Carousel.Caption>
@@ -65,19 +65,16 @@ class ServiceQuality extends React.Component {
       className="d-block w-100"
       src="https://images.unsplash.com/photo-1533035336122-4327d347d2fe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
       alt="Second slide"
-      />
-
+      onClick={()=> this.props.service('tip', 25)}/>
       <Carousel.Caption>
       <h3>Good</h3>
       </Carousel.Caption>
       </Carousel.Item>
+
       <Carousel.Item>
       <img
-      className="d-block w-100"
-      src="https://cdn.pixabay.com/photo/2012/12/24/08/39/backdrop-72250_1280.jpg"
-
-      alt="Third slide"
-      />
+      className="d-block w-100"  src="https://cdn.pixabay.com/photo/2012/12/24/08/39/backdrop-72250_1280.jpg"
+      alt="Third slide" onClick={() => this.props.service('tip', 15)} />
       <Carousel.Caption>
       <h3>Fair</h3>
       </Carousel.Caption>
@@ -87,8 +84,7 @@ class ServiceQuality extends React.Component {
       <img
       className="d-block w-100"
       src="https://images.unsplash.com/photo-1538635546732-684a9ec39ea5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1070&q=80"
-      alt="Fourth slide"
-      />
+      alt="Fourth slide" onClick={() => this.props.service('tip', 5)} />
       <Carousel.Caption>
       <h3>Poor</h3>
       </Carousel.Caption>
@@ -156,12 +152,13 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      bill: 102.48,
-      tip: 10,
+      bill: 112.58,
+      tip: 20,
       numOfPeople: 2
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleIncrement = this.handleIncrement.bind(this);
+    this.service = this.service.bind(this);
   }
   
   handleChange(event) {
@@ -174,6 +171,12 @@ class App extends React.Component {
     this.setState(prevState => ({
                   [count]: prevState[count] + value
                   }));
+  }
+  
+  service(name, value) {
+    this.setState({
+      [name]: value
+    });
   }
   
   render () {
@@ -202,7 +205,7 @@ class App extends React.Component {
       <p className="experience">How was your experience today?</p>
       </Col>
       
-      <ServiceQuality />
+      <ServiceQuality service={this.service}/>
       
       </Col>
       <Col id="tip">
