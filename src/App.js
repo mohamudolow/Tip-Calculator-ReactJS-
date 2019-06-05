@@ -30,7 +30,7 @@ const Bill = (props) => {
       <InputGroup.Prepend>
       <InputGroup.Text>$</InputGroup.Text>
       </InputGroup.Prepend>
-      <FormControl arai-label="Amount (to the nearest two decimal places)" value={props.bill}/>
+      <FormControl arai-label="Amount (to the nearest two decimal places)" value={props.bill} onChange={props.handleChange}/>
       </InputGroup>
       </Col>
       <Col>
@@ -160,7 +160,15 @@ class App extends React.Component {
       tip: 10,
       numOfPeople: 2
     }
+    this.handleChange = this.handleChange.bind(this);
   }
+  
+  handleChange(event) {
+    this.setState({
+      bill: event.target.value
+    })
+  }
+  
   render () {
     return (
       <div id="container">
@@ -173,7 +181,7 @@ class App extends React.Component {
       
       <div id="main">
       <Container>
-      <Bill bill={this.state.bill} numOfPeople={this.state.numOfPeople} />
+      <Bill bill={this.state.bill} numOfPeople={this.state.numOfPeople} handleChange={this.handleChange}/>
       
       
       <div id="service">
