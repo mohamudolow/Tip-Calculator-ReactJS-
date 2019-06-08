@@ -2,6 +2,28 @@ import React from 'react';
 import './App.css';
 import { Container, Form, InputGroup, FormControl, Row, Col, Carousel } from 'react-bootstrap';
 
+const slider = [
+      {
+        "src": "https://cdn.pixabay.com/photo/2012/03/01/00/57/background-19861_1280.jpg",
+        "val": 35,
+        "experience": "Excellent"
+      },
+          {
+        "src": "https://images.unsplash.com/photo-1533035336122-4327d347d2fe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
+        "val": 25,
+        "experience": "Good"
+      },
+          {
+        "src": "https://cdn.pixabay.com/photo/2012/12/24/08/39/backdrop-72250_1280.jpg",
+        "val": 15,
+        "experience": "Fair"
+      },
+          {
+        "src": "https://images.unsplash.com/photo-1538635546732-684a9ec39ea5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1070&q=80",
+        "val": 5,
+        "experience": "Poor"
+      }
+    ];
 
 class PersonIncrementor extends React.Component {
   constructor(props) {
@@ -55,46 +77,23 @@ class ServiceQuality extends React.Component {
   render() {
     return (
       <Carousel>
-      <Carousel.Item>
-      <img
-      className="d-block w-100" src="https://cdn.pixabay.com/photo/2012/03/01/00/57/background-19861_1280.jpg"
-      alt="First slide"
-      onClick={()=> this.props.service('tip', 35)}/> 
-<Carousel.Caption>
-      <h3>Excellent</h3>
+      {slider.map(e => (
+      <Carousel.Item key={e.id}>
+            <img src={e.src} alt="slider background image"  /> 
+          <Carousel.Caption>
+      <InputGroup>
+      <InputGroup.Prepend>
+      &nbsp;&nbsp;
+      
+<InputGroup.Radio aria-label="radio button for following h3 text" id={e.experience} value={e.experience} name="experience" onClick={() => this.props.service('tip', e.val)}/>
+      </InputGroup.Prepend> &nbsp;&nbsp;
+<label for={e.experience}>{e.experience}</label>
+      </InputGroup>
+      
 </Carousel.Caption>
 </Carousel.Item>
-
-<Carousel.Item>
-      <img
-className="d-block w-100"
-src="https://images.unsplash.com/photo-1533035336122-4327d347d2fe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-alt="Second slide"
-onClick={()=> this.props.service('tip', 25)}/>
-  <Carousel.Caption>
-  <h3>Good</h3>
-</Carousel.Caption>
-</Carousel.Item>
-
-<Carousel.Item>
-  <img
-className="d-block w-100"  src="https://cdn.pixabay.com/photo/2012/12/24/08/39/backdrop-72250_1280.jpg"
-alt="Third slide" onClick={() => this.props.service('tip', 15)} />
-  <Carousel.Caption>
-  <h3>Fair</h3>
-</Carousel.Caption>
-</Carousel.Item>
-
-<Carousel.Item>
-  <img
-className="d-block w-100"
-src="https://images.unsplash.com/photo-1538635546732-684a9ec39ea5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1070&q=80"
-alt="Fourth slide" onClick={() => this.props.service('tip', 5)} />
-  <Carousel.Caption>
-  <h3>Poor</h3>
-</Carousel.Caption>
-</Carousel.Item>
-</Carousel>
+      ))}
+      </Carousel>
 );
 }
 };
@@ -175,7 +174,7 @@ class App extends React.Component {
 
   handleIncrement(count, value) {
     this.setState(prevState => {
-      if(prevState[count] > 1 || value == 1) {
+      if(prevState[count] > 1 || value === 1) {
         return ({
           [count]: prevState[count] + value
         });
