@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Tip-Calculator-ReactJS-/static/css/main.7f79e4d4.chunk.css",
+    "main.css": "/Tip-Calculator-ReactJS-/static/css/main.c50221df.chunk.css",
     "main.js": "/Tip-Calculator-ReactJS-/static/js/main.9dd65427.chunk.js",
     "main.js.map": "/Tip-Calculator-ReactJS-/static/js/main.9dd65427.chunk.js.map",
     "runtime~main.js": "/Tip-Calculator-ReactJS-/static/js/runtime~main.e4a725c6.js",
@@ -8,8 +8,8 @@
     "static/js/2.3e7063f4.chunk.js": "/Tip-Calculator-ReactJS-/static/js/2.3e7063f4.chunk.js",
     "static/js/2.3e7063f4.chunk.js.map": "/Tip-Calculator-ReactJS-/static/js/2.3e7063f4.chunk.js.map",
     "index.html": "/Tip-Calculator-ReactJS-/index.html",
-    "precache-manifest.59c3d2d019cc98033731987615a73c2c.js": "/Tip-Calculator-ReactJS-/precache-manifest.59c3d2d019cc98033731987615a73c2c.js",
+    "precache-manifest.acc7843fd89b3c052fba7879d350e4d4.js": "/Tip-Calculator-ReactJS-/precache-manifest.acc7843fd89b3c052fba7879d350e4d4.js",
     "service-worker.js": "/Tip-Calculator-ReactJS-/service-worker.js",
-    "static/css/main.7f79e4d4.chunk.css.map": "/Tip-Calculator-ReactJS-/static/css/main.7f79e4d4.chunk.css.map"
+    "static/css/main.c50221df.chunk.css.map": "/Tip-Calculator-ReactJS-/static/css/main.c50221df.chunk.css.map"
   }
 }
